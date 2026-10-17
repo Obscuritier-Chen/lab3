@@ -7,6 +7,44 @@ using backend.Models;
 
 namespace backend.Controllers;
 
+
+[ApiController]
+[Route("api/[controller]")]
+public class ApplicationsController : ControllerBase
+{
+    private readonly AppDbContext _context;
+
+    public ApplicationsController(AppDbContext appDbContext)
+    {
+        this._context =  appDbContext;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateAppDraft()
+    {
+        return Ok();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetAppDraftById(int id)
+    {
+        return Ok(id);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> ModifyAppDraftById(int id)
+    {
+        return Ok(id);
+    }
+
+    [HttpPost("{id}/submit")]
+    public async Task<IActionResult> SubmitAppDraftById(int id)
+    {
+        return Ok(id);
+    }
+
+}
+/*
 [ApiController]
 [Route("api/[controller]")]
 public class TodoController : ControllerBase
@@ -60,3 +98,4 @@ public class TodoController : ControllerBase
         return Ok(item);
     }
 }
+*/
